@@ -1,95 +1,59 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import {
+  Container,
+  Flex,
+  Heading,
+  Image,
+  Stack,
+  Text,
+  Button,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
+    <Flex as="main" height="calc(100vh)" background={"chakra-body-bg"}>
+      <Flex w="full" alignItems="center" my="16">
+        <Container>
+          <Image
+            mb="8"
+            h="24"
+            src={useColorModeValue(
+              "https://sitecorecontenthub.stylelabs.cloud/api/public/content/37768281ce944bafb141bc1d4741fae1",
+              "https://sitecorecontenthub.stylelabs.cloud/api/public/content/507bd1b6eaa04385b07cfe44a424e053"
+            )}
+            alt="Sitecore Blok logo"
+          />
+          <Stack spacing="6" align="start">
+            <Heading as="h1" size="xl">
+              Build better products faster
+            </Heading>
+            <Text variant="subtle" maxW="prose">
+              Blok is{" "}
+              <NextLink href="https://www.sitecore.com">Sitecore’s</NextLink>{" "}
+              product design system: the UI framework and style guide we use to
+              build great apps. It’s publicly available, so that anyone can
+              easily build software in the Sitecore design language.
+            </Text>
+            <Button as={NextLink} href="https://blok.sitecore.com/get-started">
+              Get started
+            </Button>
+          </Stack>
+        </Container>
+      </Flex>
+      <NextLink href="https://www.sitecore.com">
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          m="8"
+          h="10"
+          src="https://delivery-sitecore.sitecorecontenthub.cloud/api/public/content/logo-sitecore"
+          alt="Sitecore logo"
+          position={"absolute"}
+          bottom={"0"}
+          right={"0"}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </NextLink>
+    </Flex>
   );
 }
